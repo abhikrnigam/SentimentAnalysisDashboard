@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sentimentanalysisdashboard/InfoPage.dart';
 
 class ChartPlot extends StatefulWidget {
   @override
@@ -18,17 +19,18 @@ class _ChartPlotState extends State<ChartPlot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue[900],
-        title: Text(
-          "The Blues",
-          style: GoogleFonts.poppins(
+      floatingActionButton:
+        FloatingActionButton(
+          child: Icon(
+            Icons.arrow_back_ios,
+            size: 25,
             color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
           ),
+          backgroundColor: Colors.blue[900],
+          onPressed: (){
+            Navigator.pop(context);
+          },
         ),
-      ),
       body: Container(
         color: Colors.blue,
         child: Column(
@@ -37,7 +39,7 @@ class _ChartPlotState extends State<ChartPlot> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(
-                      top: 10.0, right: 15.0, left: 15.0, bottom: 8),
+                      top: 60.0, right: 15.0, left: 15.0, bottom: 8),
                   child: Center(
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.35,
@@ -52,7 +54,7 @@ class _ChartPlotState extends State<ChartPlot> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.only(
-                        top: 35.0, right: 15.0, left: 15.0),
+                        top: 80.0, right: 15.0, left: 15.0),
                     child: Container(
                       child: BarChart(
                         BarChartData(
@@ -181,7 +183,7 @@ class _ChartPlotState extends State<ChartPlot> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(
-                      top: 10.0, left: 15.0, right: 15.0, bottom: 10.0),
+                      top: 35.0, left: 15.0, right: 15.0, bottom: 10.0),
                   child: Center(
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.35,
@@ -195,7 +197,7 @@ class _ChartPlotState extends State<ChartPlot> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(top: 25.0, left: 50.0, right: 55.0),
+                      const EdgeInsets.only(top: 50.0, left: 50.0, right: 55.0),
                   child: LineChart(
                     LineChartData(
                       gridData: FlGridData(
@@ -226,7 +228,7 @@ class _ChartPlotState extends State<ChartPlot> {
                           getTitles: (value) {
                             switch (value.toInt()) {
                               case 2:
-                                return '                                     Total number of users -->';
+                                return '';
                               case 5:
                                 return '';
                               case 8:
@@ -246,28 +248,29 @@ class _ChartPlotState extends State<ChartPlot> {
                           getTitles: (value) {
                             switch (value.toInt()) {
                               case 1:
-                                return '1';
+                                return '';
                               case 2:
-                                return '2';
+                                return '';
                                 case 3:
-                                return '3';
+                                return '';
                                 case 4:
-                                return '4';
+                                return '';
                                 case 5:
-                                return '5';
+                                return '';
                                 case 6:
-                                return '6';
+                                return '';
                             }
                             return '';
                           },
                           reservedSize: 28,
-                          margin: 12,
+                          margin: 1,
                         ),
                       ),
                       axisTitleData: FlAxisTitleData(
-                        leftTitle:
-                            AxisTitle(showTitle: true, titleText: 'Depressed Users -->',textStyle: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold)),
-                      ),
+                        bottomTitle: AxisTitle(showTitle: true, titleText: 'Total Users',textStyle: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold)),
+                      leftTitle:
+                      AxisTitle(showTitle: true, titleText: 'Depressed Users',textStyle: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold)),
+                    ),
                       borderData: FlBorderData(
                           show: true,
                           border: Border.all(

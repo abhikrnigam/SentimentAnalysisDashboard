@@ -1,11 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sentimentanalysisdashboard/InfoPage.dart';
 
 import 'HomeScreen.dart';
 import 'ChartPlot.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -41,6 +45,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.forward,
+          size: 25,
+          color: Colors.white,
+        ),
+        backgroundColor: Colors.blue[900],
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>InfoPage()));
+        },
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -123,30 +138,30 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Spacer(flex: 9,),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: FloatingActionButton(
-                  elevation: 5,
-                  onPressed: (){
-                    {
-//                  initialRoute == 'true' ?
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => ChartPlot()));
-//                      :
-//                  Navigator.push(context,
-//                      MaterialPageRoute(builder: (context) => HomeScreen()));
-                    }
-                  },
-                  child: Text(">",style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                ),
-              ),
-            ),
+//            Align(
+//              alignment: Alignment.bottomRight,
+//              child: Padding(
+//                padding: const EdgeInsets.all(15.0),
+//                child: FloatingActionButton(
+//                  elevation: 5,
+//                  onPressed: (){
+//                    {
+////                  initialRoute == 'true' ?
+//                      Navigator.push(context, MaterialPageRoute(
+//                          builder: (context) => InfoPage()));
+////                      :
+////                  Navigator.push(context,
+////                      MaterialPageRoute(builder: (context) => HomeScreen()));
+//                    }
+//                  },
+//                  child: Text(">",style: GoogleFonts.poppins(
+//                    color: Colors.white,
+//                    fontSize: 25,
+//                    fontWeight: FontWeight.bold,
+//                  ),),
+//                ),
+//              ),
+//            ),
             Spacer(flex: 2,),
           ],
         ),
