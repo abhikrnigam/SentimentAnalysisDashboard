@@ -138,30 +138,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Spacer(flex: 9,),
-//            Align(
-//              alignment: Alignment.bottomRight,
-//              child: Padding(
-//                padding: const EdgeInsets.all(15.0),
-//                child: FloatingActionButton(
-//                  elevation: 5,
-//                  onPressed: (){
-//                    {
-////                  initialRoute == 'true' ?
-//                      Navigator.push(context, MaterialPageRoute(
-//                          builder: (context) => InfoPage()));
-////                      :
-////                  Navigator.push(context,
-////                      MaterialPageRoute(builder: (context) => HomeScreen()));
-//                    }
-//                  },
-//                  child: Text(">",style: GoogleFonts.poppins(
-//                    color: Colors.white,
-//                    fontSize: 25,
-//                    fontWeight: FontWeight.bold,
-//                  ),),
-//                ),
-//              ),
-//            ),
             Spacer(flex: 2,),
           ],
         ),

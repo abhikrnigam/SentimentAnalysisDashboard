@@ -17,6 +17,7 @@ class _InfoPageState extends State<InfoPage> {
 
   Future<dynamic> getUserInfo() async {
     response = await FirebaseFirestore.instance.collection("users").get();
+    //await print(response.length);
     return response;
   }
 
@@ -74,7 +75,7 @@ class _InfoPageState extends State<InfoPage> {
                   String tweet = snapshot.data.docs[0]["tweet"];
                   String name = snapshot.data.docs[0]["name"];
                   double depressiveFactor=snapshot.data.docs[0]["depressiveFactor"];
-                  double positiveFactor=snapshot.data.docs[0]["positiveFactor"];
+                  //double positiveFactor=snapshot.data.docs[0]["positiveFactor"];
                   bool prediction=snapshot.data.docs[0]["prediction"];
                   if (tweet.length == 0 || name.length == 0) {
                     return Text("Something went wrong");
